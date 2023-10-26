@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="cont">
+      <div class="date">
+        <label for="datum">Hier ist Datum:</label>
+        <input id="datum" type="text" />
+        <p id="textdatum"></p>
+      </div>
+      <div class="texte">
+        <label for="text">Hier ist text:</label>
+        <input id="text" type="text" />
+        <p id="textText"></p>
+      </div>
+      <div class="btn"><button id="btn">Speichern</button></div>
+    </div>
+  </body>
+
+  <script>
+    let datumArray = JSON.parse(localStorage.getItem("arrayDatum"));
+    if (datumArray == null) datumArray = [];
+    for (let i = 0; i < datumArray.length; i++) {
+      document.getElementById("textdatum").innerHTML +=
+        i + 1 + ". " + datumArray[i] + "<br>";
+    }
+    /*================================================================================*/
+    let text = JSON.parse(localStorage.getItem("arrayText"));
+    if (text == null) text = [];
+    for (let j = 0; j < text.length; j++) {
+      document.getElementById("textText").innerHTML +=
+        j + 1 + ". " + text[j] + "<br>";
+    }
+
+    /*================================================================================*/
+    let button = document.getElementById("btn");
+    button.addEventListener("click", function () {
+      /*==================================================================================*/
+      document.getElementById("textdatum").innerHTML +=
+        datumArray.length +
+        1 +
+        ". " +
+        document.getElementById("datum").value +
+        "<br>";
+
+      /*==================================================================================*/
+      // localStorage.setItem(
+      //   "datum",
+      //   document.getElementById("textdatum").innerHTML
+      // );
+      /*==================================================================================*/
+      datumArray.push(document.getElementById("datum").value);
+
+      localStorage.setItem("arrayDatum", JSON.stringify(datumArray));
+
+      document.getElementById("datum").value = "";
+      /*==========================================================================*/
+
+      // document.getElementById("textText").innerHTML +=
+      //   text.length + 1 + ". " + document.getElementById("text").value + "<br>";
+      /*==========================================================================*/
+      // localStorage.setItem(
+      //   "text",
+      //   document.getElementById("textText").innerHTML
+      // );
+
+      /*==========================================================================*/
+
+      text.push(document.getElementById("text").value);
+
+      localStorage.setItem("arrayText", JSON.stringify(text));
+
+      document.getElementById("text").value = "";
+    });
+    localStorage.removeItem("arrayDatum");
+    localStorage.removeItem("arrayText");
+  </script>
+</html>

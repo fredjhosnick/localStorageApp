@@ -1,0 +1,63 @@
+#textdatum {
+  font-size: 30px;
+  font-family: monospace;
+  text-align: start;
+  margin: 10px 10px;
+}
+
+#textText {
+  font-size: 30px;
+  font-family: monospace;
+  text-align: start;
+  margin: 10px 20px;
+}
+input {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+label {
+  font-size: 25px;
+  font-weight: 900;
+  font-family: monospace;
+  color: blue;
+}
+button {
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: cornflowerblue;
+  border: none;
+  font-weight: 700;
+}
+button:hover {
+  background-color: rgb(16, 79, 196);
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+}
+.cont {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 10px;
+}
+.date {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  text-align: center;
+}
+.texte {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  text-align: center;
+}
+.btn {
+  margin: 35px 10px 0 10px;
+}
